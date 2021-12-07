@@ -27,8 +27,8 @@
   color: white;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 2000px) {
   .pageTitle {
-    font-size: 6.4vw;
+    margin-top: 2rem;
   }
 }

@@ -6,6 +6,7 @@ import TvIcon from "@material-ui/icons/Tv";
 import MovieIcon from "@material-ui/icons/Movie";
 import SearchIcon from "@material-ui/icons/Search";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import { useHistory } from "react-router-dom";
 
 
@@ -34,6 +35,8 @@ export default function SimpleBottomNavigation() {
       history.push("/series");
     } else if (value === 3) {
       history.push("/search");
+    } else if (value === 4) {
+      history.push("/watchlist");
     }
   }, [value, history]);
 
@@ -66,6 +69,13 @@ export default function SimpleBottomNavigation() {
         label="Search"
         icon={<SearchIcon />}
       />
+
+      <BottomNavigationAction
+        style={{ color: "white" }}
+        label="Watchlist"
+        icon={<PlaylistAddIcon />}
+      />
+
     </BottomNavigation>
   );
 }

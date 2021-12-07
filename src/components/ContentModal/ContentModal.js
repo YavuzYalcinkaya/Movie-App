@@ -144,6 +144,13 @@ export default function TransitionsModal({ children, media_type, id }) {
                   >
                     Watch the Trailer
                   </Button>
+
+                  <Button
+                  variant="contained"
+                  color="secondary"
+                  >
+                    Add to List  
+                  </Button>
                 </div>
               </div>
             </div>
