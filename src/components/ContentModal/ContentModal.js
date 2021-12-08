@@ -46,6 +46,19 @@ export default function TransitionsModal({ children, media_type, id }) {
     setOpen(false);
   };
 
+  const saveToWatchList = (content) => {
+
+    const list = localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : [];
+
+    if (list.findIndex(e => e.id == content.id) < 0) {
+      list.push(content)
+      localStorage.setItem("watchlist", JSON.stringify(list))
+    }
+
+
+
+  }
+
   const fetchData = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
@@ -141,16 +154,18 @@ export default function TransitionsModal({ children, media_type, id }) {
                     color="secondary"
                     target="__blank"
                     href={`https://www.youtube.com/watch?v=${video}`}
+                    style={{ marginBottom: 10 }}
                   >
                     Watch the Trailer
                   </Button>
 
                   <Button
-                   
-                   variant="contained"
-                   color="secondary"
+
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => saveToWatchList(content)}
                   >
-                    Add to List  
+                    Add to List
                   </Button>
                 </div>
               </div>

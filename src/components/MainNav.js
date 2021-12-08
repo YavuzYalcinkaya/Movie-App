@@ -23,28 +23,40 @@ const useStyles = makeStyles({
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const history = useHistory();
-  
+  // const history = useHistory();
+  const linkToPage = (link) => {
+    window.location.href = link
+  }
 
-  useEffect(() => {
-    if (value === 0) {
-      history.push("/");
-    } else if (value === 1) {
-      history.push("/movies");
-    } else if (value === 2) {
-      history.push("/series");
-    } else if (value === 3) {
-      history.push("/search");
-    } else if (value === 4) {
-      history.push("/watchlist");
-    }
-  }, [value, history]);
+  // useEffect(() => {
+  //   if (value === 0) {
+  //     history.push("/");
+  //   } else if (value === 1) {
+  //     history.push("/movies");
+  //   } else if (value === 2) {
+  //     history.push("/series");
+  //   } else if (value === 3) {
+  //     history.push("/search");
+  //   } else if (value === 4) {
+  //     history.push("/watchlist");
+  //   }
+  // }, [value, history]);
 
   return (
     <BottomNavigation
       value={value}
       onChange={(event, newValue) => {
-        setValue(newValue);
+        if (newValue === 0) {
+          linkToPage("/");
+        } else if (newValue === 1) {
+          linkToPage("/movies");
+        } else if (newValue === 2) {
+          linkToPage("/series");
+        } else if (newValue === 3) {
+          linkToPage("/search");
+        } else if (newValue === 4) {
+          linkToPage("/watchlist");
+        }
       }}
       showLabels
       className={classes.root}
