@@ -11,7 +11,7 @@
 }
 
 .media:hover {
-  background-color: white;
+  background-color: #fff;
   color: black;
 }
 
@@ -32,6 +32,7 @@
   padding: 8px 0;
 }
 
+
 .subTitle {
   display: flex;
   justify-content: space-between;
@@ -39,3 +40,5 @@
   padding: 0 2px;
   padding-bottom: 3px;
 }
+
+

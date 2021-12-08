@@ -146,8 +146,9 @@ export default function TransitionsModal({ children, media_type, id }) {
                   </Button>
 
                   <Button
-                  variant="contained"
-                  color="secondary"
+                   
+                   variant="contained"
+                   color="secondary"
                   >
                     Add to List  
                   </Button>
