@@ -44,7 +44,7 @@ const Genres = ({
     <div style={{ padding: "6px 0" }}>
       {selectedGenres.map((genre) => (
         <Chip
-          style={{ margin: 2 }}
+          style={{ margin: 2, fontWeight: "bold" }}
           label={genre.name}
           key={genre.id}
           color="primary"
@@ -55,7 +55,7 @@ const Genres = ({
       ))}
       {genres.map((genre) => (
         <Chip
-          style={{ margin: 2 }}
+          style={{ margin: 2, fontWeight: "bold" }}
           label={genre.name}
           key={genre.id}
           clickable

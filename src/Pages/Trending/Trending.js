@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import SingleContent from "../../components/SingleContent/SingleContent";
-import './Trending.css';
+import "./Trending.css";
 import CustomPagination from "../../components/Pagination/CustomPagination";
 
 const Trending = () => {
@@ -24,7 +24,7 @@ const Trending = () => {
 
   return (
     <div>
-      <span className="pageTitle">Trending Today</span>
+      <span className="pageTitle">Trending Week</span>
       <div className="trending">
         {content &&
           content.map((c) => (
