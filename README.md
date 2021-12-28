@@ -1,4 +1,5 @@
-The Novie App With React
+The Movie App With React
+
 Live Demo: https://movie-app-ry.netlify.app/
 
 
