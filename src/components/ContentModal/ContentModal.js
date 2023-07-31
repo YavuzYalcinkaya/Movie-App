@@ -47,17 +47,15 @@ export default function TransitionsModal({ children, media_type, id }) {
   };
 
   const saveToWatchList = (content) => {
+    const list = localStorage.getItem("watchlist")
+      ? JSON.parse(localStorage.getItem("watchlist"))
+      : [];
 
-    const list = localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : [];
-
-    if (list.findIndex(e => e.id == content.id) < 0) {
-      list.push(content)
-      localStorage.setItem("watchlist", JSON.stringify(list))
+    if (list.findIndex((e) => e.id === content.id) < 0) {
+      list.push(content);
+      localStorage.setItem("watchlist", JSON.stringify(list));
     }
-
-
-
-  }
+  };
 
   const fetchData = async () => {
     const { data } = await axios.get(
@@ -160,7 +158,6 @@ export default function TransitionsModal({ children, media_type, id }) {
                   </Button>
 
                   <Button
-
                     variant="contained"
                     color="secondary"
                     onClick={() => saveToWatchList(content)}

@@ -2,8 +2,6 @@ import { Badge } from "@material-ui/core";
 import { img_300, unavailable } from "../../config/config";
 import "./SingleContent.css";
 import ContentModal from "../ContentModal/ContentModal";
-import { useHistory } from 'react-router'
-import { useEffect } from "react";
 import { Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 const SingleContent = ({
@@ -15,14 +13,15 @@ const SingleContent = ({
   vote_average,
   isInMoovieList = false,
 }) => {
-  const history = useHistory()
   const deleteFromWatchList = (e) => {
     e.stopPropagation();
-    const list = localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : [];
-    const newList = list.filter(e => e.id != id)
-    localStorage.setItem("watchlist", JSON.stringify(newList))
-    window.location.reload()
-  }
+    const list = localStorage.getItem("watchlist")
+      ? JSON.parse(localStorage.getItem("watchlist"))
+      : [];
+    const newList = list.filter((e) => e.id !== id);
+    localStorage.setItem("watchlist", JSON.stringify(newList));
+    window.location.reload();
+  };
   return (
     <ContentModal media_type={media_type} id={id}>
       <Badge
@@ -40,7 +39,7 @@ const SingleContent = ({
         {media_type === "tv" ? "TV Series" : "Movie"}
         <span className="subTitle">{date}</span>
       </span>
-      {isInMoovieList &&
+      {isInMoovieList && (
         <Button
           startIcon={<DeleteIcon />}
           variant="contained"
@@ -51,8 +50,7 @@ const SingleContent = ({
         >
           Delete From WatchList
         </Button>
-
-      }
+      )}
     </ContentModal>
   );
 };
